@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dbs-mcp-server"
+version = "0.1.0"
+description = "MCP server wrapping the CMS DBS3 Python client."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+dependencies = [
+  "mcp>=1.28.0",
+  "dbs3-client>=4.0.19",
+]
+
+[project.scripts]
+dbs-mcp = "dbs_mcp_server.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dbs_mcp_server"]
